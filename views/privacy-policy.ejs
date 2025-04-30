@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="img/Golden.png" type="image/png">
+	<title>Sayles Away Travel</title>
+
+    <link href="https://fonts.cdnfonts.com/css/gold-lines-serif-trial" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/grandiflora-one" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/klein-trial" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/gold-lines-serif-trial" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/mylestock-free" rel="stylesheet">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+	<link rel="stylesheet" href="vendors/animate-css/animate.css">
+	<link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css">
+	<link rel="stylesheet" href="vendors/popup/magnific-popup.css">
+	<link rel="stylesheet" href="vendors/swiper/css/swiper.min.css">
+	<link rel="stylesheet" href="vendors/scroll/jquery.mCustomScrollbar.css">
+	<!-- main css -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 0px 20px; background: linear-gradient(to right, #f9f9f9); border-bottom: 4px solid #37d7e5;">
+    <div style="flex: 1; display: flex; justify-content: center; position: relative; margin-left: 80px;">
+        <a href="/" style="display: inline-block;">
+            <img src="img/JPEG-small-size-transparent.png" alt="Logo" style="height: 80px; max-width: 100%; object-fit: contain; z-index: 1;">
+        </a>
+    </div>
+
+
+
+    <section class="top-btn-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <% if (isAuthenticated) { %>
+                        <a href="/logout" class="main_btn">
+                            Log out
+                            <img src="img/next.png" alt="">
+                        </a>
+                    <% } else { %>
+                        <a href="/login" class="main_btn">
+                            Log in
+                            <img src="img/next.png" alt="">
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+
+
+
+
+
+<body>
+    <style>
+    .title {
+    font-family: 'Mylestock Free', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #090909;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+}
+
+
+.list.menu-left {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.list.menu-left li {
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important; 
+    list-style-type: none;
+}
+
+.list.menu-left a {
+    font-family: 'Gold Lines Serif Trial', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    color: #000000 !important;
+    text-decoration: none !important;
+    padding: 10px 0 !important; 
+    white-space: nowrap !important;
+    display: block !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+}
+
+
+.side_menu {
+    padding: 20px 0px 20px 10px !important; 
+}
+
+
+/* Side menu styles */
+.side_menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 100vh;
+    background: linear-gradient(to right, #37d7e5, #00b8b8); 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.side_menu.active {
+    display: block;
+}
+
+/* Toggle Icon */
+.toggle_icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+}
+
+.toggle_icon span {
+    background-color: #110e0e;
+    height: 3px;
+    width: 30px;
+    margin: 4px 0;
+}
+
+/* Logo */
+.logo img {
+    max-width: 90%;
+    object-fit: contain;
+    height: 150px;
+}
+
+/* Interactive Border */
+.interactive-border:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-color: #00b8b8;
+}
+
+/* ------- MOBILE RESPONSIVENESS -------- */
+
+@media screen and (max-width: 768px) {
+    .list.menu-left {
+        text-align: left !important;
+        padding-left: 0 !important;
+    }
+
+    .list.menu-left a {
+        font-size: 18px !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+    }
+
+    .side_menu {
+        width: 250px !important; 
+    }
+}
+ 
+
+    .toggle_icon {
+        left: 10px;
+        top: 10px;
+    }
+
+    .toggle_icon span {
+        width: 25px; 
+    }
+
+
+    </style>
+
+
+</head>
+
+<body style="display: flex; flex-direction: column; min-height: 100vh; background: url('img/background.jpg') no-repeat center center fixed; background-size: cover;">
+    <div class="side_menu" style="padding-top: 0; margin-top: 0; max-height: 100vh; overflow-y: auto; scroll-behavior: smooth;">
+        <div class="menu-close">
+            <div class="toggle_icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+       
+		<div class="logo" style="text-align: center; padding: 30px 0;">
+			<img src="img/Golden_transparent.png" alt="Sayles Away Travel Logo" style="height: 150px; max-width: 90%; object-fit: contain;">
+		</div>
+
+        <ul class="list menu-left" style="margin-top: -20px;">
+            <li><a href="/">Home</a></li>
+            <li><a href="/group-travel-services">Group Travel Services</a></li>
+            <li><a href="/destination-weddings">Destination Weddings</a></li>
+            <li><a href="/excursions">Excursions</a></li>
+            <li>
+                <% if (isAuthenticated) { %>
+                    <a href="/travel-inquiry-form">Travel Inquiry Form</a>
+                <% } else { %>
+                    <a href="/travelinquiryformnoaccess">Travel Inquiry Form</a>
+                <% } %>
+            </li>
+            <li>
+                <% if (isAuthenticated) { %>
+                    <a href="/contact">Contact Us</a>
+                <% } else { %>
+                    <a href="/contactnoaccess">Contact Us</a>
+                <% } %>
+            </li>
+        </ul>
+    </div>
+
+    <div class="toggle_icon" title="Menu Bar">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        document.querySelector(".toggle_icon").addEventListener("click", function() {
+    document.querySelector(".side_menu").classList.toggle("active");
+});
+
+    </script>
+
+
+    </div> 
+    <div class="container">
+        
+        <h1 style="font-family: 'Mylestock Free', sans-serif !important; font-size: 70px; font-weight: 300; text-align: center; margin-bottom: 20px; color: #333333; letter-spacing: 1.5px;">
+            Privacy Policy
+        </h1>
+        <p style="font-size: 1.1rem; line-height: 1.8; color: #333333; margin-bottom: 15px; text-align: justify;">
+        <p style="line-height: 1.8; color: #333333; font-family: 'Grandiflora One';margin-bottom: 15px; text-align: justify;">
+            Last updated: March 2025
+        <div style="line-height: 1.8; color: #060505; margin-bottom: 15px; text-align: justify; border: 2px solid #37d7e5; padding: 15px; border-radius: 10px; background: linear-gradient(to right, #f9f9f9, #e6f7ff); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: 'Grandiflora One', serif;"> 
+            <p>We, the entity identified on this site by name and contact information published in the header of this site, (the “Company”), publish this Privacy Policy (the “Policy”) to inform visitors and customers of our practices concerning the collection, use, and protection of information that you provide to us through interactions with this website and with those of our affiliate. This Policy applies to all visitors to the website as well as all customers and potential customers of our travel services.</p>
+
+                <p>1. For purposes of this Policy, “User” means any person (i) accessing the Company’s website, (ii) using the services available through the Company’s website, or (iii) contacting the Company via the website’s contact form.</p>
+                
+                <p>2. Personally Identifiable Information (PII). In the course of using the Services, Users may be required to provide certain personally identifiable information to the Company, including such Users’ first and last names, mailing addresses (including zip codes), e-mail addresses, telephone and facsimile numbers, and other personally identifiable information. The Company may gather additional personal or non-personal information in the future. Depending upon the particular Service, some of the information the Company asks Users to provide is identified as mandatory and some as voluntary. If a User does not provide the mandatory information with respect to a particular Service, that User will not be able to use or access that Service. However, no personally identifiable information will be collected about a User until and unless a User provides such information in order to access a Service.</p>
+                
+                <p>3. Non-Personally Identifiable Information. In the course of providing the Services, the Company may gather certain information that does not specifically identify a specific User. This information may include Uniform Resource Locators (“URLs”) used by Users to access the Services, the browser used by User to access the Services (Internet Explorer, Google Chrome, etc.), a User’s Internet Protocol (“IP”) address, and a User’s Machine Access Control (“MAC”) address. This information may be compiled and analyzed on both a personal and an aggregated basis and is used for the operation of the Services and to maintain the quality of the Services.</p>
+                
+                <p>4. Use of Information. We will use the Information to provide the Services to you, including, as needed, sharing your information with third parties as provided in Section 4 below. We may also use your information to: (i) ensure that our records are accurate; (ii) send out information on additional travel or services you may be interested in on behalf of the Company and; (iii) Our Travel and Business Partners.</p>
+                
+                <p>5. Sharing of Information. Except as otherwise stated in this Privacy Policy, the Company will not disclose, sell, trade, or lease a User’s personally identifiable information to other parties.</p>
+                
+                <p>5.1 Outside Agents. Many of our services are provided by Outside Agents, and your personal information will be protected by and subject to Outside Agents’ privacy policy, located here: <a href="https://outsideagents.com/privacy-policy-2019/" style="color: #000000; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';" onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">https://outsideagents.com/privacy-policy-2019/.</a></p>
+                
+                <p>5.2 Travel Search Engine. The travel search engine is powered by Odysseus Solutions Inc. When using the travel search engine, your personal information is protected by and subject to Odysseus Solutions privacy policy and data protection protocols, incorporated herein by reference, located here <a href="https://www.odysseussolutions.com/privacy-policy.html" style="color: #000000; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';" onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">https://www.odysseussolutions.com/privacy-policy.html</a> and here <a href="https://www.odysseussolutions.com/data-security-statement.html" style="color: #000000; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';" onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">https://www.odysseussolutions.com/data-security-statement.html</a> respectively.</p>
+                
+                <p>5.3 Client Relationship and Accounting Data. We, the Company, will maintain certain PII as described below to service bookings, communicate with you, and to manage accounting related information.</p>
+                
+                <p>5.4 Other Third-Party Providers. Many of the Services involve delivering personally identifiable information to other third-party providers. Credit card transactions are handled by established third party banking, processing agents and distribution institutions. If a User uses a credit card to pay for Services, we will be required to share the User’s personally identifiable information with such institutions in order to verify and authorize the User’s credit card or other payment information.</p>
+                
+                <p>5.5. Government Authorities. The Company may be required by law to provide personally identifiable information to governmental authorities in certain circumstances. The Company will disclose Personally Identifiable Information upon receipt of a court order, subpoena, or other judicial requirements. The Company fully cooperates with law enforcement agencies in identifying Users who use the Services for illegal activities. The Company reserves the right to report to law enforcement agencies any activities that the Company, in good faith and in its sole discretion, believes to be unlawful.</p>
+                
+                <p>5.6. Direct Marketing. The Company does not disclose User’s personally identifiable information to third parties for direct marketing purposes.</p>
+                
+                <p>6. Security and Protection of Information..</p>
+                
+                <p>6.1. Personally Identifiable Information (PII). The Company shall store personally identifiable information in accordance with current industry security standards in order to protect it from unauthorized access, use or disclosure. User access to his or her own personally identifiable information is available through unique customer ID and a password selected by User. Such information is stored on a secure server only accessible by the Company. The Company encrypts personally identifiable information using industry-recognized standards in order to prevent unauthorized parties from viewing such information that a User submits it to the Company.</p>
+                
+                <p>6.2. Transmission of Personally Identifiable Information. When personally identifiable information is transmitted to other parties, such as Outside Agents, Revelex, Odysseus Solutions Inc., TravelESolutions.com, government authorities, credit card providers, or any other authorized third parties, the Company will use commercially reasonable efforts to prevent unauthorized parties from viewing such information.</p>
+                
+                <p>6.3. Access and User Changes to Information. User may access and update User’s information at any time by contacting the Company. However, any changes to User’s information will only be reflected going forward; the Company cannot alter information it has already provided to third parties.</p>
+                
+                <p>6.4. No Warranties. No data transmission over the Internet or other wireless communication method can be guaranteed to be totally secure. As a result, while the Company will make all reasonable efforts to protect the privacy of Users’ information, both personally identifiable and otherwise, THE COMPANY MAKES NO GUARANTEES, REPRESENTATIONS, OR WARRANTIES WITH RESPECT TO THE PRIVACY OF SUCH TRANSMITTED INFORMATION. The Company’s obligations with respect to the security of Users’ stored information are set forth in the applicable contract. State laws may also apply to said obligations to secure stored information.</p>
+                
+                <p>7. Use of Cookies. The Services use “cookies” to ensure that Users can use the websites effectively. A cookie is a text file that is placed on a User’s hard disk by a web page server. The Company does not use cookies to run programs on a User’s computer. Cookies are uniquely assigned to Users and can only be read by a web server in the domain that issued the cookie. Each User has the ability to accept or decline cookies. Most Web browsers automatically accept cookies, but with settings that can be modified to decline cookies. If a User chooses to decline cookies, the User may have difficulty using the Services or may be unable to use the Services at all.</p>
+                
+                <p>8. General Data Protection Regulation. We do not offer Services to residents of the European Union. While the Company attempts to avoid doing business with residents of the European Union, we cannot prevent such activity in every case. Given this fact, residents of the European Union expressly assume responsibility for their actions on this website, any related website, or any third-party service. Further, residents of the European Union in using the Company’s services, indemnify the Company with regard to E.U. law. We store any personally identifiable information any visitor to the Company’s sites and its partners as required by U.S. law and industry best practices.</p>
+                
+                <p>9. Changes to Policy. The Company shall, from time to time, update this Privacy Policy in order to better protect User data, to comply with changes in applicable law, and to meet any contractual obligations of the Company. The Company shall notify all Users of changes to this Privacy Policy – prior to the changes taking effect – via e-mail to each User’s registered e-mail address and by posting the new Privacy Policy on its website. User’s continued use of the Services after any updates to the Privacy Policy take effect shall be deemed to constitute User’s acceptance of the changes and its agreement to be bound by them.</p>
+                
+                <p>10. California Law. The following provisions apply only to Users residing or domiciled in the State of California:</p>
+                
+                <p>10.1 Sale of Personally Identifiable Information. Under Cal. Civ. Code § 1798.80, a User residing in the State of California has the right to request from the Company a list of all third parties to which the Company has disclosed personally identifiable information during the preceding year for direct marketing purposes. As stated before, the Company does not and will not disclose such information for direct marketing purposes. For questions about this policy, please contact us at the email address indicated in the header of this, the Company’s, website.</p>
+                
+                <p>10.2 Do Not Track Signals. In order to help us personalize your experience on our website, the Company does not act on Do Not Track signals from a User’s Internet browser. The Company’s suppliers that collect personally identifiable information through the Services also do not act on Do Not Track signals from a user’s browser. The Company makes no representations concerning a third-party partner that collects personally identifiable information directly through the Company’s website. These disclosures are made under Cal. Bus. & Prof. Code § 22575.</p>
+                
+                <p>11. Indemnification. The Company uses this website through its relationship with OutsideAgents.com. The Company is solely responsible for this websites content, data, security, and compliance with all applicable law. Specifically, the Company indemnifies OutsideAgents.com for any failures, breaches, or other problems arising from the Company’s use of this site or other services provided by OutsideAgents.com and its partners.</p>
+                
+                <p>This Privacy Policy is effective as of April 8, 2019.</p>
+            </p>
+        </p>
+    </div>
+    </div>
+
+
+    <head>
+        <script src="https://kit.fontawesome.com/83152295c7.js" crossorigin="anonymous"></script>
+    </head>
+    
+    <footer class="footer-area" style="background: linear-gradient(to right, #37d7e5, #00b8b8); color: #000000; font-family: 'Roboto', sans-serif;">
+        <div class="container">
+            <div class="footer-bottom" style="text-align: center; padding: 10px 0; font-size: 12px; border-top: 1px solid rgba(0, 0, 0, 0.1); font-family: 'Mylestock';">
+                <h3 style="font-size: 16px; font-weight: 500; margin-bottom: 4px; font-family: 'Mylestock-Free';">
+                    Sayles Away Travel
+                </h3>
+            
+                <p style="margin: 2px 0;">
+                    832.377.5221 • <a href="mailto:saylesawaytravel@gmail.com" style="color: #000000; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';" onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">saylesawaytravel@gmail.com</a>
+                </p>
+                <p style="margin: 2px 0; line-height: 1.4;">
+                    An Independent Affiliate of Outside Agents, Florida Seller of Travel Ref. No. ST15578 – Washington UBID No. 603189022
+                </p>
+                <p style="margin-top: 5px;">
+                    <a href="/terms-of-service" 
+                       style="color: #000000; text-decoration: none; transition: all 0.3s ease;" 
+                       onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';"
+                       onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">
+                       Terms Of Service
+                    </a> • 
+                    <a href="/privacy-policy" 
+                       style="color: #000000; text-decoration: none; transition: all 0.3s ease;" 
+                       onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';"
+                       onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">
+                       Privacy Policy
+                    </a>
+                </p>
+                <div style="margin-top: 10px;">
+                    <a href="https://www.facebook.com/saylesawaytravel/" target="_blank" style="margin: 0 8px;">
+                        <i class="fab fa-facebook-f" style="font-size: 18px; color: #000000;"></i>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/saylesawaytravel/" target="_blank" style="margin: 0 8px;">
+                        <i class="fab fa-instagram" style="font-size: 18px; color: #000000;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+        
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleIcons = document.querySelectorAll(".toggle_icon");
+            const sideMenu = document.querySelector(".side_menu");
+            const closeMenuIcon = document.querySelector(".menu-close .toggle_icon");
+    
+            // Toggle the side menu when the toggle icon is clicked
+            toggleIcons.forEach(icon => {
+                icon.addEventListener("click", function () {
+                    sideMenu.classList.toggle("active");
+                });
+            });
+    
+            // Close the side menu when the close menu icon is clicked
+            closeMenuIcon.addEventListener("click", function () {
+                sideMenu.classList.remove("active");
+            });
+    
+            // Close the side menu if you click anywhere outside of it
+            document.addEventListener("click", function (event) {
+                if (!sideMenu.contains(event.target) && !event.target.closest('.toggle_icon')) {
+                    sideMenu.classList.remove("active");
+                }
+            });
+        });
+    </script>
+    
+    </body>
+    
+        
+        <!--================ End footer Area  =================-->
+    
+    
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/stellar.js"></script>
+        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+        <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+        <script src="vendors/isotope/isotope-min.js"></script>
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="vendors/jquery-ui/jquery-ui.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/mail-script.js"></script>
+        <script src="vendors/popup/jquery.magnific-popup.min.js"></script>
+        <script src="vendors/swiper/js/swiper.min.js"></script>
+        <script src="vendors/scroll/jquery.mCustomScrollbar.js"></script>
+        <script src="js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="img/Golden.png" type="image/png">
+	<title>Sayles Away Travel</title>
+
+    <link href="https://fonts.cdnfonts.com/css/mylestock-free" rel="stylesheet">
+
+    <link href="https://fonts.cdnfonts.com/css/gold-lines-serif-trial" rel="stylesheet">
+
+    <link href="https://fonts.cdnfonts.com/css/klein-trial" rel="stylesheet">
+                
+                
+
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+	<link rel="stylesheet" href="vendors/animate-css/animate.css">
+	<link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css">
+	<link rel="stylesheet" href="vendors/popup/magnific-popup.css">
+	<link rel="stylesheet" href="vendors/swiper/css/swiper.min.css">
+	<link rel="stylesheet" href="vendors/scroll/jquery.mCustomScrollbar.css">
+	<!-- main css -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 0px 20px; background: linear-gradient(to right, #f9f9f9); border-bottom: 4px solid #37d7e5;">
+    <div style="flex: 1; display: flex; justify-content: center; position: relative; margin-left: 80px;">
+        <a href="/" style="display: inline-block;">
+            <img src="img/JPEG-small-size-transparent.png" alt="Logo" style="height: 80px; max-width: 100%; object-fit: contain; z-index: 1;">
+        </a>
+    </div>
+
+
+
+    <section class="top-btn-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <% if (isAuthenticated) { %>
+                        <a href="/logout" class="main_btn">
+                            Log out
+                            <img src="img/next.png" alt="">
+                        </a>
+                    <% } else { %>
+                        <a href="/login" class="main_btn">
+                            Log in
+                            <img src="img/next.png" alt="">
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+
+
+
+
+
+<body>
+    <style>
+    .title {
+    font-family: 'Mylestock Free', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #090909;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+}
+
+.klein-trial-text {
+    font-family: 'Klein Trial', serif; 
+    font-weight: normal; 
+    font-size: 20px;
+    color: #333333; 
+}
+
+
+.service-info-title h3 {
+    font-family: 'Gold Lines Serif Trial', serif; 
+    font-weight: normal; 
+    color: #333333;
+    text-align: center; 
+}
+
+
+
+
+.list.menu-left {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.list.menu-left li {
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important; 
+    list-style-type: none;
+}
+
+.list.menu-left a {
+    font-family: 'Gold Lines Serif Trial', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    color: #000000 !important;
+    text-decoration: none !important;
+    padding: 10px 0 !important; 
+    white-space: nowrap !important;
+    display: block !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+}
+
+
+.side_menu {
+    padding: 20px 0px 20px 10px !important; 
+}
+
+
+
+.side_menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 100vh;
+    background: linear-gradient(to right, #37d7e5, #00b8b8); 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.side_menu.active {
+    display: block;
+}
+
+/* Toggle Icon */
+.toggle_icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+}
+
+.toggle_icon span {
+    background-color: #110e0e;
+    height: 3px;
+    width: 30px;
+    margin: 4px 0;
+}
+
+/* Logo */
+.logo img {
+    max-width: 90%;
+    object-fit: contain;
+    height: 150px;
+}
+
+/* Interactive Border */
+.interactive-border:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-color: #00b8b8;
+}
+
+
+/* ------- MOBILE RESPONSIVENESS -------- */
+@media screen and (max-width: 768px) {
+    .list.menu-left {
+        text-align: left !important;
+        padding-left: 0 !important;
+    }
+
+    .list.menu-left a {
+        font-size: 18px !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+    }
+
+    .side_menu {
+        width: 250px !important; 
+    }
+}
+ 
+
+    .toggle_icon {
+        left: 10px;
+        top: 10px;
+    }
+
+    .toggle_icon span {
+        width: 25px; 
+    }
+
+
+    </style>
+
+
+<body style="display: flex; flex-direction: column; min-height: 100vh; background: url('img/background.jpg') no-repeat center center fixed; background-size: cover;">
+    <div class="side_menu" style="padding-top: 0; margin-top: 0; max-height: 100vh; overflow-y: auto; scroll-behavior: smooth;">
+        <div class="menu-close">
+            <div class="toggle_icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="logo" style="text-align: center; padding: 30px 0;">
+            <img src="img/Golden_transparent.png" alt="Sayles Away Travel Logo" style="height: 150px; max-width: 90%; object-fit: contain; margin-top: 20px;">
+        </div>
+        
+        <ul class="list menu-left" style="margin-top: -20px;">
+            <li><a href="/">Home</a></li>
+            <li><a href="/group-travel-services">Group Travel Services</a></li>
+            <li><a href="/destination-weddings">Destination Weddings</a></li>
+            <li><a href="/excursions">Excursions</a></li>
+            <li>
+                <% if (isAuthenticated) { %>
+                    <a href="/travel-inquiry-form">Travel Inquiry Form</a>
+                <% } else { %>
+                    <a href="/travelinquiryformnoaccess">Travel Inquiry Form</a>
+                <% } %>
+            </li>
+            <li>
+                <% if (isAuthenticated) { %>
+                    <a href="/contact">Contact Us</a>
+                <% } else { %>
+                    <a href="/contactnoaccess">Contact Us</a>
+                <% } %>
+            </li>
+        </ul>
+        
+    </div>
+
+    <div class="toggle_icon" title="Menu Bar">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+	<title>Our Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+		.title {
+    font-family: 'Mylestock Free', sans-serif;
+    font-size: 80px;
+    color: #090909;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+    text-align: center; 
+    display: block;
+    margin: 20px auto; 
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16; 
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+
+
+.service-video {
+  aspect-ratio: unset;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+
+
+.video-wrapper:hover .play-button {
+    opacity: 1;
+}
+
+
+
+
+.about-container {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+
+.about-image {
+    width: 250px; 
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #ffd700;
+    flex-shrink: 0;
+}
+
+
+.about-text-container {
+    flex: 2;
+    min-width: 300px;
+    max-width: 700px;
+    padding: 20px;
+}
+
+
+.about-title {
+    font-family: 'Mylestock Free', sans-serif;
+    font-size: 80px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-text {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .about-image {
+        width: 200px; 
+    }
+
+    .about-title {
+        font-size: 48px; 
+        text-align: center;
+    }
+
+    .about-text {
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+
+.gold-lines-text {
+    font-family: 'Gold Lines Serif Trial', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center; 
+    color: #090909; 
+}
+
+
+
+        .service-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .service-card {
+            width: 20%;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+
+        .service-card img,
+        .service-card video {
+            width: 100%;
+            height: auto;  
+            object-fit: cover;
+        }
+
+        .service-card .service-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .service-card .service-info h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+   
+
+        .service-card .service-info p {
+            color: #777;
+            font-size: 1rem;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        @media (max-width: 768px) {
+            .service-card {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-card {
+                width: 100%;
+            }
+        }
+	
+button[type="submit"]:hover {
+    background-color: #009b9b; 
+    transition: background-color 0.3s ease;
+}
+
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #ffd700; 
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.8); 
+}
+
+
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    form {
+        padding: 10px;
+    }
+    input, textarea {
+        font-size: 16px;
+    }
+}
+
+
+    </style>
+</head>
+
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<body>
+
+
+    <div class="title">Sayles Away Travel</div>
+
+    
+    <div class="service-container">
+    
+        <div class="service-card">
+            <div class="video-wrapper">
+                <video class="service-video" muted>
+                    <source src="img/Cabos.mp4" type="video/mp4">
+                </video>
+                <button class="play-button">&#9658;</button>
+            </div>
+            <div class="service-info" style="font-family: 'Cormorant Garamond', serif; font-weight: 300;">
+                <h3 style="font-family: 'Gold Lines Serif Trial', serif;">Luxury Vacations</h3>
+                <p style="font-family: 'Klein Trial', serif;">
+                    Indulge in a luxurious vacation experience with high-end resorts, gourmet dining, and exclusive experiences.
+                </p>
+            </div>
+        </div>
+    
+        <div class="service-card">
+            <div class="video-wrapper">
+                <video class="service-video" muted>
+                    <source src="img/Romantic.mp4" type="video/mp4">
+                </video>
+                <button class="play-button">&#9658;</button>
+            </div>
+            <div class="service-info" style="font-family: 'Cormorant Garamond', serif; font-weight: 300;">
+                <h3 style="font-family: 'Gold Lines Serif Trial', serif;">Romantic Getaways</h3>
+                <p style="font-family: 'Klein Trial', serif;">
+                    Escape to a paradise for two with our romantic getaway packages, perfect for creating unforgettable memories.</p>
+                </p>
+            </div>
+        </div>
+    
+        <div class="service-card">
+            <div class="video-wrapper">
+                <video class="service-video" muted>
+                    <source src="img/Cancun.mp4" type="video/mp4">
+                </video>
+                <button class="play-button">&#9658;</button>
+            </div>
+            <div class="service-info" style="font-family: 'Cormorant Garamond', serif; font-weight: 300;">
+                <h3 style="font-family: 'Gold Lines Serif Trial', serif;">All Inclusive Resorts</h3>
+                <p style="font-family: 'Klein Trial', serif;">
+                Enjoy everything you need for a perfect vacation, from meals to activities, all in one incredible package.</p>
+            </div>
+        </div>
+    
+        <div class="service-card">
+            <div class="video-wrapper">
+                <video class="service-video" muted>
+                    <source src="img/Colombia.mp4" type="video/mp4">
+                </video>
+                <button class="play-button">&#9658;</button>
+            </div>
+            <div class="service-info" style="font-family: 'Cormorant Garamond', serif; font-weight: 300;">
+                <h3 style="font-family: 'Gold Lines Serif Trial', serif;">International Escapes</h3>
+                <p style="font-family: 'Klein Trial', serif;">
+                Explore new countries and cultures with tailored international travel experiences to amazing destinations.</p>
+            </div>
+        </div>
+    
+    </div>
+    
+    
+</body>
+</html>
+
+
+<!-- About Section -->
+<section id="about" style="padding: 50px 20px; background-color: #fffefe; color: #060606; text-align: left;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px;">
+
+        <!-- Image Section -->
+        <div class="about-container">
+        <div style="flex: 1; min-width: 300px; max-width: 400px; text-align: center;">
+            <img src="img/Headshot.png" alt="About Us" style="width: 100%; height: auto; background-color: #37d7e5; border-radius: 10px;">
+        </div>
+
+        <!-- Text Section -->
+        <div class="about-text-container">
+            <h2 class="about-title">About Us</h2>
+            <p class="klein-trial-text">
+                After planning my dream destination wedding, I knew becoming a travel agent was the best way to express my passion for traveling. 
+                Whether it's group travel or a family vacation, I'm here to assist with your travel needs. I offer a variety of services including:
+                customized quotes, trip itineraries/excursions, and packages for groups, solo travelers, couples, etc.
+            </p>
+            <p class="klein-trial-text">
+                I travel quite frequently and would love to share those experiences with my travel family. I truly enjoy helping others plan their 
+                dream vacations. Allow me to be your dedicated travel consultant and curate the best travel experience for you!
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+<head>
+    <script src="https://kit.fontawesome.com/83152295c7.js" crossorigin="anonymous"></script>
+</head>
+
+	
+<footer class="footer-area" style="font-family: 'Mylestock-Free';background: linear-gradient(to right, #37d7e5, #00b8b8); color: #000000;">
+    <div class="container">
+        <div class="footer-bottom" style="text-align: center; padding: 10px 0; font-size: 12px; border-top: 1px solid rgba(0, 0, 0, 0.1);">
+            <h3 style="font-size: 16px; font-family: 'Mylestock-Free';font-weight: 500; margin-bottom: 4px;">
+                Sayles Away Travel
+            </h3>
+            <p style="margin: 2px 0;">
+                832.377.5221 • <a href="mailto:saylesawaytravel@gmail.com" style="color: #000000; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';" onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">saylesawaytravel@gmail.com</a>
+            </p>
+            <p style="margin: 2px 0; line-height: 1.4;">
+                An Independent Affiliate of Outside Agents, Florida Seller of Travel Ref. No. ST15578 – Washington UBID No. 603189022
+            </p>
+            <p style="margin-top: 5px;">
+                <a href="/terms-of-service" 
+                   style="color: #000000; text-decoration: none; transition: all 0.3s ease;" 
+                   onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';"
+                   onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">
+                   Terms Of Service
+                </a> • 
+                <a href="/privacy-policy" 
+                   style="color: #000000; text-decoration: none; transition: all 0.3s ease;" 
+                   onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';"
+                   onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">
+                   Privacy Policy
+                </a>
+            </p>
+            <div style="margin-top: 10px;">
+                <a href="https://www.facebook.com/saylesawaytravel/" target="_blank" style="margin: 0 8px;">
+                    <i class="fab fa-facebook-f" style="font-size: 18px; color: #000000;"></i>
+                </a>
+                
+                <a href="https://www.instagram.com/saylesawaytravel/" target="_blank" style="margin: 0 8px;">
+                    <i class="fab fa-instagram" style="font-size: 18px; color: #000000;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+      const video = wrapper.querySelector('.service-video');
+      const button = wrapper.querySelector('.play-button');
+  
+      // Show play button initially
+      button.style.display = 'flex';
+  
+      // When play button is clicked
+      button.addEventListener('click', () => {
+        video.play();
+        video.muted = false;
+        button.style.display = 'none';
+      });
+  
+      // Click anywhere on video to pause
+      video.addEventListener('click', () => {
+        if (!video.paused) {
+          video.pause();
+          button.style.display = 'flex';
+        }
+      });
+  
+      // Reset button when video ends
+      video.addEventListener('ended', () => {
+        button.style.display = 'flex';
+      });
+    });
+  </script>
+  
+  
+  
+  
+  
+	
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleIcons = document.querySelectorAll(".toggle_icon");
+        const sideMenu = document.querySelector(".side_menu");
+        const closeMenuIcon = document.querySelector(".menu-close .toggle_icon");
+
+      
+        toggleIcons.forEach(icon => {
+            icon.addEventListener("click", function () {
+                sideMenu.classList.toggle("active");
+            });
+        });
+
+
+        closeMenuIcon.addEventListener("click", function () {
+            sideMenu.classList.remove("active");
+        });
+
+    
+        document.addEventListener("click", function (event) {
+            if (!sideMenu.contains(event.target) && !event.target.closest('.toggle_icon')) {
+                sideMenu.classList.remove("active");
+            }
+        });
+    });
+</script>
+
+</body>
+
+	
+	<!--================ End footer Area  =================-->
+
+</html>

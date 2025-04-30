@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="img/Golden.png" type="image/png">
+	<title>Sayles Away Travel</title>
+    <link href="https://fonts.cdnfonts.com/css/klein-trial" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/mylestock-free" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/qarinthen" rel="stylesheet">         
+    <link href="https://fonts.cdnfonts.com/css/gold-lines-serif-trial" rel="stylesheet">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+	<link rel="stylesheet" href="vendors/animate-css/animate.css">
+	<link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css">
+	<link rel="stylesheet" href="vendors/popup/magnific-popup.css">
+	<link rel="stylesheet" href="vendors/swiper/css/swiper.min.css">
+	<link rel="stylesheet" href="vendors/scroll/jquery.mCustomScrollbar.css">
+	<!-- main css -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 0px 20px; background: linear-gradient(to right, #f9f9f9); border-bottom: 4px solid #37d7e5;">
+    <div style="flex: 1; display: flex; justify-content: center; position: relative; margin-left: 80px;">
+        <a href="/" style="display: inline-block;">
+            <img src="img/JPEG-small-size-transparent.png" alt="Logo" style="height: 80px; max-width: 100%; object-fit: contain; z-index: 1;">
+        </a>
+    </div>
+
+
+
+    <section class="top-btn-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <% if (isAuthenticated) { %>
+                        <a href="/logout" class="main_btn">
+                            Log out
+                            <img src="img/next.png" alt="">
+                        </a>
+                    <% } else { %>
+                        <a href="/login" class="main_btn">
+                            Log in
+                            <img src="img/next.png" alt="">
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+
+
+
+
+
+
+
+<body>
+    <style>
+    .title {
+    font-family: 'Mylestock Free', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #090909;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+}
+
+
+.list.menu-left {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.list.menu-left li {
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important; 
+    list-style-type: none;
+}
+
+.list.menu-left a {
+    font-family: 'Gold Lines Serif Trial', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    color: #000000 !important;
+    text-decoration: none !important;
+    padding: 10px 0 !important; 
+    white-space: nowrap !important;
+    display: block !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+}
+
+
+.side_menu {
+    padding: 20px 0px 20px 10px !important; 
+}
+
+
+/* Side menu styles */
+.side_menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 100vh;
+    background: linear-gradient(to right, #37d7e5, #00b8b8); 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.side_menu.active {
+    display: block;
+}
+
+/* Toggle Icon */
+.toggle_icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+}
+
+.toggle_icon span {
+    background-color: #110e0e;
+    height: 3px;
+    width: 30px;
+    margin: 4px 0;
+}
+
+/* Logo */
+.logo img {
+    max-width: 90%;
+    object-fit: contain;
+    height: 150px;
+}
+
+
+.interactive-border:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-color: #00b8b8;
+}
+
+/* ------- MOBILE RESPONSIVENESS -------- */
+
+@media screen and (max-width: 768px) {
+    .list.menu-left {
+        text-align: left !important;
+        padding-left: 0 !important;
+    }
+
+    .list.menu-left a {
+        font-size: 18px !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+    }
+
+    .side_menu {
+        width: 250px !important; 
+    }
+}
+ 
+
+    .toggle_icon {
+        left: 10px;
+        top: 10px;
+    }
+
+    .toggle_icon span {
+        width: 25px; 
+    }
+
+
+    </style>
+
+
+</head>
+
+<body style="display: flex; flex-direction: column; min-height: 100vh; background: url('img/background.jpg') no-repeat center center fixed; background-size: cover;">
+    <div class="side_menu" style="padding-top: 0; margin-top: 0; max-height: 100vh; overflow-y: auto; scroll-behavior: smooth;">
+        <div class="menu-close">
+            <div class="toggle_icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+       
+		<div class="logo" style="text-align: center; padding: 30px 0;">
+			<img src="img/Golden_transparent.png" alt="Sayles Away Travel Logo" style="height: 150px; max-width: 90%; object-fit: contain;">
+		</div>
+
+        <ul class="list menu-left" style="margin-top: -20px;">
+            <li><a href="/">Home</a></li>
+            <li><a href="/group-travel-services">Group Travel Services</a></li>
+            <li><a href="/destination-weddings">Destination Weddings</a></li>
+            <li><a href="/excursions">Excursions</a></li>
+            <li>
+                <% if (isAuthenticated) { %>
+                    <a href="/travel-inquiry-form">Travel Inquiry Form</a>
+                <% } else { %>
+                    <a href="/travelinquiryformnoaccess">Travel Inquiry Form</a>
+                <% } %>
+            </li>
+            <li>
+                <% if (isAuthenticated) { %>
+                    <a href="/contact">Contact Us</a>
+                <% } else { %>
+                    <a href="/contactnoaccess">Contact Us</a>
+                <% } %>
+            </li>
+        </ul>
+    </div>
+
+    <div class="toggle_icon" title="Menu Bar">
+        <span></span>
+        <span></span>
+        <span></span>
+                </div>
+
+                <script>
+                    document.querySelector(".toggle_icon").addEventListener("click", function() {
+                document.querySelector(".side_menu").classList.toggle("active");
+            });
+            
+                </script>
+            
+
+	<title>Our Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .title {
+            text-align: center;
+            font-family: 'Georgia', serif; 
+            font-size: 2.5rem;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        .service-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .service-card {
+            width: 20%;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card img,
+        .service-card video {
+            width: 100%;
+            height: auto;  
+            object-fit: cover;
+        }
+
+        .service-card .service-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .service-card .service-info h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .service-card .service-info p {
+            color: #777;
+            font-size: 1rem;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .required::after {
+            content: " *";
+            color: rgb(164, 17, 17);
+            font-weight: bold;
+        }
+
+        .buttonload {
+            background-color: #090909;
+            padding: 12px 16px;
+        }
+        .fa {
+            margin-left: -12px;
+            margin-right: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .service-card {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-card {
+                width: 100%;
+            }
+        }
+
+	
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #ffd700; 
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.8); 
+}
+
+
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    form {
+        padding: 10px;
+    }
+    input, textarea {
+        font-size: 16px;
+    }
+}
+
+
+    </style>
+</head>
+
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<body>
+
+
+    <h2 style="font-family: 'Mylestock Free', sans-serif !important; font-size: 70px; font-weight: 400; color: #090909; letter-spacing: 1px; margin-bottom: 20px; text-align: center;">
+        Travel Inquiry Form
+    </h2>
+    
+    
+    
+     
+    <div id="introduction" style="max-width: 800px; margin: 10px auto; padding: 0 15px; margin: 0 auto; text-align: center;">
+        <br>
+        <h3 style="font-family: 'Klein Trial'; font-size: 30px; color: #37d7e5; margin-bottom: 30px; font-weight: bold;">
+            Please complete the form below so we can provide a custom quote just for you!
+        </h3>
+        <p style="font-family: 'Klein Trial'; font-size: 18px; color: #777; margin-bottom: 40px;">
+            Please allow <span style="font-family: 'Qarinthen';">48-72</span> for all new quotes/bookings to be processed. 
+            If you have sent this request on a weekend and/or holiday, your request will be processed the following business day.
+            <br>
+            Thank you!
+            <br>
+            - Sayles Away Travel
+        </p>
+        
+    </div>
+    
+</div>
+</body>
+</html>
+
+<form method="POST" id="travelinquiryform" onsubmit="showSpinner()"
+    style="max-width: 800px; width: 100%; margin: 0 auto; background-color: #f9f9f9;
+           padding: 30px; border-radius: 10px; 
+           border: 2px solid #37d7e5; 
+           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+           margin-bottom: 20px;">
+
+            <!-- First Name Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="fname" style="display: block; font-size: 18px; font-family: 'Klein Trial'; font-weight: 500; text-align: left; margin-bottom: 5px;">
+                    First Name
+                </label>
+                <input type="text" id="fname" name="fname" value="<%= userInfo.given_name %>" readonly
+                       style="width: 100%; font-family: 'Klein Trial'; padding: 15px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; color: #888888; background-color: #f0f0f0; cursor: not-allowed; outline: none; transition: border 0.3s;">
+            </div>
+
+            <!-- Last Name Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="lname" style="display: block;font-family: 'Klein Trial'; font-size: 18px; font-weight: 500;  text-align: left; margin-bottom: 5px;">
+                    Last Name
+                </label>
+                <input type="text" id="lname" name="lname" value="<%= userInfo.family_name %>" readonly
+                       style="width: 100%; padding: 15px; font-family: 'Klein Trial';font-size: 16px; border: 2px solid #ddd; border-radius: 8px; color: #333; color: #888888; background-color: #f0f0f0; cursor: not-allowed; outline: none; transition: border 0.3s;">
+            </div>
+
+            <!-- Email Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="email" style="display: block;font-family: 'Klein Trial'; font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    Email
+                </label>
+                <input type="text" id="email" name="email" value="<%= userInfo.email %>" readonly
+                       style="width: 100%;font-family: 'Qarinthen'; padding: 15px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px;  color: #888888; background-color: #f0f0f0; cursor: not-allowed; outline: none; transition: border 0.3s;">
+            </div>
+
+            <!-- Destination Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="destination" class="required" style="display: block; font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    Where would you like to travel to?
+                </label>
+                <input type="text" id="destination" name="destination" required
+                       style="width: 100%; padding: 15px;font-family: 'Klein Trial'; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+            </div>
+
+            <!-- Departure City Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="departure" class="required" style="display: block; font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    What is your departure city?
+                </label>
+                <input type="text" id="departure" name="departure" required 
+                       style="width: 100%; padding: 15px;font-family: 'Klein Trial'; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+            </div>
+
+            <!-- Dates Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="start_date" class="required" style="display: block; font-size: 18px;font-family: 'Klein Trial'; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    Start Date
+                </label>
+                <input type="date" id="start_date" name="start_date" required 
+                        style="width: 100%;font-family: 'Qarinthen'; padding: 15px; margin-top: 8px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+            </div>
+            <div style="margin-bottom: 20px;">    
+                <label for="end-date" class="required" style="display: block; font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    End Date
+                </label>
+                <input type="date" id="end_date" name="end_date" required 
+                        style="width: 100%;font-family: 'Qarinthen'; padding: 15px; margin-top: 8px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+            </div>
+            
+            <!-- Valid Passport Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="valid_passport" class="required" style="font-family: 'Klein Trial';display: block; font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    Do you have a valid passport?
+                </label>
+                <div style="display: flex; align-items: center;">
+                    <input type="radio" id="valid_passport_yes" name="valid_passport" value="Yes">
+                    <label for="valid_passport_yes" style="font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; margin-left: 10px;">Yes</label>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="radio" id="valid_passport_no" name="valid_passport" value="No">
+                    <label for="valid_passport_no" style="font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; margin-left: 10px;">No</label>
+                </div>
+            </div>
+
+            <!-- Travelers Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="num_travelers" class="required" style="font-family: 'Klein Trial';display: block; font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    How many travelers?
+                </label>
+                <input type="number" id="num_travelers" name="num_travelers" required 
+                       style="width: 100%; padding: 15px; font-size: 16px;font-family: 'Qarinthen'; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+            </div>
+
+            <!-- Travelers under 18 Input -->
+            <div style="margin-bottom: 20px;">
+                <label class="required" style="display: block; font-size: 18px; font-family: 'Klein Trial'; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    Are there any travelers under the age of 
+                    <span style="font-family: 'Qarinthen'; font-weight: normal;">18</span>? If so, how many?
+                </label>
+            
+                <div style="display: flex; align-items: center;">
+                    <input type="radio" id="under_18_is_traveling" name="under_18_travelers" value="Yes" onclick="toggleTextboxAge(true)">
+                    <label for="under_18_is_traveling" style="font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; margin-left: 10px;">Yes</label>
+                </div>
+                <div style="display: none;font-family: 'Qarinthen'; margin-bottom: 20px;" id="under_18_traveler_count" name="under_18_traveler_count">
+                    <input type="number" name="under_18_traveler_count"
+                           style="width: 100%; padding: 15px;font-family: 'Qarinthen'; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="radio" id="under_18_is_not_traveling" name="under_18_travelers" value="No" onclick="toggleTextboxAge(false)">
+                    <label for="under_18_is_not_traveling" style="font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; margin-left: 10px;">No</label>
+                </div>
+            </div>
+
+            <!-- Travel accommodation Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="accommodations" class="required" style="display: block; font-size: 18px; font-family: 'Klein Trial';font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    What travel accommodation is needed?
+                </label>
+                <div style="display: flex; align-items: center;">
+                    <input type="radio" id="hotel-&-flight" name="accommodations" value="Hotel & Flight">
+                    <label for="hotel-&-flight" style="font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; margin-left: 10px;">Hotel & Flight</label>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="radio" id="hotel-only" name="accommodations" value="Hotel Only">
+                    <label for="hotel-only" style="font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; margin-left: 10px;">Hotel only</label>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="radio" id="cruise" name="accommodations" value="Cruise Package">
+                    <label for="cruise" style="font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; margin-left: 10px;">Cruise Package</label>
+                </div>
+            </div>
+
+            <!-- Rooms Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="rooms" class="required" style="display: block; font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    How many rooms do you need?
+                </label>
+                <input type="number" id="rooms" name="rooms" required 
+                       style="width: 100%; padding: 15px; font-family: 'Qarinthen';font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+            </div>
+
+            <!-- Payment Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="payment" class="required" style="display: block; font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    How soon are you prepared to book/pay deposits?
+                </label>
+                <input type="date" id="payment" name="payment" required 
+                        style="font-family: 'Qarinthen';width: 100%; padding: 15px; margin-top: 8px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+            </div>
+
+            <!-- Atmosphere Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="atmosphere" class="required" style="font-family: 'Klein Trial';display: block; font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    What type of atmosphere are you looking for?
+                </label>
+                <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="rest" name="atmosphere" value="Rest & Relaxation"  
+                        style="width: auto; font-size: 16px; font-family: 'Klein Trial';border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+                    <label for="rest" style="font-size: 18px;font-family: 'Klein Trial';font-weight: 500; color: #333; margin-left: 10px;">Rest & Relaxation</label>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="party" name="atmosphere" value="Party Vibes"  
+                        style="width: auto; font-size: 16px; font-family: 'Klein Trial'; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+                    <label for="party" style="font-size: 18px; font-family: 'Klein Trial'; font-weight: 500; color: #333; margin-left: 10px;">Party Vibes</label>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="family" name="atmosphere" value="Family Friendly"  
+                        style="width: auto; font-size: 16px; border: 2px solid #ddd; font-family: 'Klein Trial';border-radius: 8px; outline: none; transition: border 0.3s;">
+                    <label for="family" style="font-size: 18px; font-family: 'Klein Trial';font-weight: 500; color: #333; margin-left: 10px;">Family Friendly</label>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="romantic" name="atmosphere" value="Romantic"  
+                        style="width: auto; font-size: 16px;font-family: 'Klein Trial'; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+                    <label for="romantic" style="font-size: 18px; font-family: 'Klein Trial';font-weight: 500; color: #333; margin-left: 10px;">Romantic</label>
+                </div>
+            </div>
+
+            <!-- Budget Dropdown -->
+            <div style="padding-bottom: 70px; display: block; width: 100%;">
+                <label for="budget" class="required" style="display: block; font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 10px;">
+                    What is the budget per person? Please be as accurate as possible.
+                </label>
+                <select id="budget" name="budget" style="display: block; width: 100%; font-family: 'Klein Trial';max-width: 400px; padding: 10px; font-size: 18px; font-weight: 500; color: #333; border: 1px solid #ccc; border-radius: 5px; margin-top: 5px;">
+                    <option value="" disabled selected>Select a budget range</option>
+                    <option value="$500 - $800">$500 - $800</option>
+                    <option value="$800 - $1,000">$800 - $1,000</option>
+                    <option value="$1,000 - $2,000">$1,000 - $2,000</option>
+                    <option value="Over $2,000">Over $2,000</option>
+                </select>
+            </div>
+
+            <!-- Activities Input -->
+            <div style="margin-bottom: 20px; display: block; width: 100%;">
+                <label for="activities" class="required" style="display: block; font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 10px;">
+                    Which activities are you interested in?
+                </label>
+
+                <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                    <input type="checkbox" id="beach" name="activities" value="Beach"  
+                        style="width: auto; font-family: 'Klein Trial';font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+                    <label for="beach" style="font-size: 18px;font-family: 'Klein Trial'; font-weight: 500; color: #333; margin-left: 10px;">Beach</label>
+                </div>
+                <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                    <input type="checkbox" id="gambling" name="activities" value="Gambling"  
+                        style="width: auto;font-family: 'Klein Trial'; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+                    <label for="gambling" style="font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; margin-left: 10px;">Gambling</label>
+                </div>
+                <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                    <input type="checkbox" id="excursion" name="activities" value="Excursions"  
+                        style="width: auto; font-family: 'Klein Trial';font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+                    <label for="excursion" style="font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; margin-left: 10px;">Excursions</label>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="checkbox" id="nightlife" name="activities" value="Nightlife"  
+                        style="width: auto; font-family: 'Klein Trial';font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+                    <label for="nightlife" style="font-family: 'Klein Trial';font-size: 18px; font-weight: 500; color: #333; margin-left: 10px;">Nightlife</label>
+                </div>
+            </div>
+
+            <!-- Reference Input -->
+            <div style="margin-bottom: 20px;">
+                <label for="reference" class="required" style="font-family: 'Klein Trial';display: block; font-size: 18px; font-weight: 500; color: #333; text-align: left; margin-bottom: 5px;">
+                    How did you find me?
+                </label>
+                <input type="text" id="reference" name="reference" required 
+                       style="width: 100%; padding: 15px;font-family: 'Klein Trial'; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border 0.3s;">
+            </div>
+
+            <!-- Submit Button -->
+        <div style="text-align: center;">
+            <button type="form_submit" id="submitButton" class="buttonload" style="background-color: #00b8b8; color: white; padding: 14px 30px; font-size: 18px; border: none; border-radius: 50px; cursor: pointer; transition: background-color 0.3s, transform 0.2s ease;"
+                onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                <i id="submit" class=""></i>Submit
+            </button>
+        </div>
+    </form>
+</section>
+
+
+
+<!--Ensure valid date range is used, show text box if underage travelers are present or if other option is selected, and show spinner when form is submitted-->
+<script>
+    const startDateInput = document.getElementById('start_date');
+    const endDateInput = document.getElementById('end_date');
+    const paymentDateInput = document.getElementById('payment');
+
+    startDateInput.min = new Date().toISOString().split('T')[0];
+    paymentDateInput.min = new Date().toISOString().split('T')[0];
+
+    startDateInput.addEventListener('change', function() {
+        const startDate = startDateInput.value;
+        endDateInput.min = startDate;  
+    });
+
+    function toggleTextboxAge(isVisible) {
+        document.getElementById("under_18_traveler_count").style.display = isVisible ? "block" : "none";
+    }
+
+    function toggleTextboxReference(selectedOption) {
+        const textbox = document.getElementById("other_reference");
+        if (selectedOption == "Other") {
+            textbox.style.display = "block";
+        } else {
+            textbox.style.display = "none";
+        }
+    }
+    
+    function showSpinner() {
+        const form = document.getElementById('travelinquiryform');
+        const submit = document.getElementById("submit");
+        const requiredFields = [
+            'valid_passport', 
+            'under_18_travelers', 
+            'accommodations', 
+            'atmosphere', 
+            'budget',
+            'activities'
+        ];
+
+        if (!form.checkValidity()) return;
+        
+        for (let fieldName of requiredFields) {
+        const field = form.querySelectorAll(`input[name="${fieldName}"]`);
+
+        if (field.length > 0) {
+            const check = Array.from(field).some(input => input.checked);
+            if (!check) {
+                console.log(`Missing selection in: ${fieldName}`);
+                return;
+            }
+        } else {
+            const input = form.querySelector(`[name="${fieldName}"]`);
+            if (!input || !input.value) {
+                console.log(`Missing value in: ${fieldName}`);
+                return;
+            }
+        }
+    }
+
+
+        submit.classList.add('fa', 'fa-spinner', 'fa-spin');   
+        
+    }
+
+</script>
+
+</section>
+<!--================Travel Inquiry Form Success and Error message Area =================-->
+<div id="success" class="modal modal-message fade" role="dialog">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <i class="fa fa-close"></i>
+               </button>
+               <h2>Thank you</h2>
+               <p>Your message is successfully sent...</p>
+           </div>
+       </div>
+   </div>
+</div>
+
+<!-- Modals error -->
+
+<div id="error" class="modal modal-message fade" role="dialog">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <i class="fa fa-close"></i>
+               </button>
+               <h2>Sorry !</h2>
+               <p> Something went wrong </p>
+           </div>
+       </div>
+   </div>
+</div>
+
+<head>
+    <script src="https://kit.fontawesome.com/83152295c7.js" crossorigin="anonymous"></script>
+</head>
+          
+        <footer class="footer-area" style="font-family: 'Mylestock-Free';background: linear-gradient(to right, #37d7e5, #00b8b8); color: #000000; font-family: 'Roboto', sans-serif;">
+            <div class="container">
+                <div class="footer-bottom" style="text-align: center; padding: 10px 0; font-size: 12px; border-top: 1px solid rgba(0, 0, 0, 0.1);">
+                    <h3 style="font-size: 16px; font-family: 'Mylestock-Free';font-weight: 500; margin-bottom: 4px;">
+                        Sayles Away Travel
+                    </h3>
+                    <p style="margin: 2px 0;">
+                        832.377.5221 • <a href="mailto:saylesawaytravel@gmail.com" style="color: #000000; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';" onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">saylesawaytravel@gmail.com</a>
+                    </p>
+                    <p style="margin: 2px 0; line-height: 1.4;">
+                        An Independent Affiliate of Outside Agents, Florida Seller of Travel Ref. No. ST15578 – Washington UBID No. 603189022
+                    </p>
+                    <p style="margin-top: 5px;">
+                        <a href="/terms-of-service" 
+                           style="color: #000000; text-decoration: none; transition: all 0.3s ease;" 
+                           onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';"
+                           onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">
+                           Terms Of Service
+                        </a> • 
+                        <a href="/privacy-policy" 
+                           style="color: #000000; text-decoration: none; transition: all 0.3s ease;" 
+                           onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';"
+                           onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">
+                           Privacy Policy
+                        </a>
+                    </p>
+                    <div style="margin-top: 10px;">
+                        <a href="https://www.facebook.com/saylesawaytravel/" target="_blank" style="margin: 0 8px;">
+                            <i class="fab fa-facebook-f" style="font-size: 18px; color: #000000;"></i>
+                        </a>
+                        
+                        <a href="https://www.instagram.com/saylesawaytravel/" target="_blank" style="margin: 0 8px;">
+                            <i class="fab fa-instagram" style="font-size: 18px; color: #000000;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const toggleIcons = document.querySelectorAll(".toggle_icon");
+                const sideMenu = document.querySelector(".side_menu");
+                const closeMenuIcon = document.querySelector(".menu-close .toggle_icon");
+        
+                // Toggle the side menu when the toggle icon is clicked
+                toggleIcons.forEach(icon => {
+                    icon.addEventListener("click", function () {
+                        sideMenu.classList.toggle("active");
+                    });
+                });
+        
+                // Close the side menu when the close menu icon is clicked
+                closeMenuIcon.addEventListener("click", function () {
+                    sideMenu.classList.remove("active");
+                });
+        
+                // Close the side menu if you click anywhere outside of it
+                document.addEventListener("click", function (event) {
+                    if (!sideMenu.contains(event.target) && !event.target.closest('.toggle_icon')) {
+                        sideMenu.classList.remove("active");
+                    }
+                });
+            });
+        </script>
+        
+        </body>
+        
+
+
+<!--================ End footer Area  =================-->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="vendors/isotope/isotope-min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="vendors/popup/jquery.magnific-popup.min.js"></script>
+    <script src="vendors/swiper/js/swiper.min.js"></script>
+    <script src="vendors/scroll/jquery.mCustomScrollbar.js"></script>
+    <script src="js/theme.js"></script>
+    <!-- Travel Inquiry Form js -->
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/travel-inquiry-form.js"></script>

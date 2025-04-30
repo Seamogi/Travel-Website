@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="img/Golden.png" type="image/png">
+	<title>Sayles Away Travel</title>
+
+    <link href="https://fonts.cdnfonts.com/css/gold-lines-serif-trial" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/grandiflora-one" rel="stylesheet">
+                
+                 
+    <link href="https://fonts.cdnfonts.com/css/klein-trial" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/mylestock-free" rel="stylesheet">
+
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+	<link rel="stylesheet" href="vendors/animate-css/animate.css">
+	<link rel="stylesheet" href="vendors/jquery-ui/jquery-ui.css">
+	<link rel="stylesheet" href="vendors/popup/magnific-popup.css">
+	<link rel="stylesheet" href="vendors/swiper/css/swiper.min.css">
+	<link rel="stylesheet" href="vendors/scroll/jquery.mCustomScrollbar.css">
+	<!-- main css -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 0px 20px; background: linear-gradient(to right, #f9f9f9); border-bottom: 4px solid #37d7e5;">
+    <div style="flex: 1; display: flex; justify-content: center; position: relative; margin-left: 80px;">
+        <a href="/" style="display: inline-block;">
+            <img src="img/JPEG-small-size-transparent.png" alt="Logo" style="height: 80px; max-width: 100%; object-fit: contain; z-index: 1;">
+        </a>
+    </div>
+
+
+
+    <section class="top-btn-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <% if (isAuthenticated) { %>
+                        <a href="/logout" class="main_btn">
+                            Log out
+                            <img src="img/next.png" alt="">
+                        </a>
+                    <% } else { %>
+                        <a href="/login" class="main_btn">
+                            Log in
+                            <img src="img/next.png" alt="">
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+
+
+
+
+
+<body>
+    <style>
+    .title {
+    font-family: 'Mylestock Free', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #090909;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+}
+
+
+.list.menu-left {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.list.menu-left li {
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important; 
+    list-style-type: none;
+}
+
+.list.menu-left a {
+    font-family: 'Gold Lines Serif Trial', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    color: #000000 !important;
+    text-decoration: none !important;
+    padding: 10px 0 !important; 
+    white-space: nowrap !important;
+    display: block !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+}
+
+
+.side_menu {
+    padding: 20px 0px 20px 10px !important; 
+}
+
+
+.side_menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 100vh;
+    background: linear-gradient(to right, #37d7e5, #00b8b8); 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.side_menu.active {
+    display: block;
+}
+
+/* Toggle Icon */
+.toggle_icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+}
+
+.toggle_icon span {
+    background-color: #110e0e;
+    height: 3px;
+    width: 30px;
+    margin: 4px 0;
+}
+
+/* Logo */
+.logo img {
+    max-width: 90%;
+    object-fit: contain;
+    height: 150px;
+}
+
+/* Interactive Border */
+.interactive-border:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-color: #00b8b8;
+}
+
+/* ------- MOBILE RESPONSIVENESS -------- */
+
+@media screen and (max-width: 768px) {
+    .list.menu-left {
+        text-align: left !important;
+        padding-left: 0 !important;
+    }
+
+    .list.menu-left a {
+        font-size: 18px !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+    }
+
+    .side_menu {
+        width: 250px !important; 
+    }
+}
+
+ 
+
+    .toggle_icon {
+        left: 10px;
+        top: 10px;
+    }
+
+    .toggle_icon span {
+        width: 25px; 
+    }
+
+
+    </style>
+
+
+</head>
+
+<body style="display: flex; flex-direction: column; min-height: 100vh; background: url('img/background.jpg') no-repeat center center fixed; background-size: cover;">
+    <div class="side_menu" style="padding-top: 0; margin-top: 0; max-height: 100vh; overflow-y: auto; scroll-behavior: smooth;">
+        <div class="menu-close">
+            <div class="toggle_icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+       
+		<div class="logo" style="text-align: center; padding: 30px 0;">
+			<img src="img/Golden_transparent.png" alt="Sayles Away Travel Logo" style="height: 150px; max-width: 90%; object-fit: contain;">
+		</div>
+
+        <ul class="list menu-left" style="margin-top: -20px;">
+            <li><a href="/">Home</a></li>
+            <li><a href="/group-travel-services">Group Travel Services</a></li>
+            <li><a href="/destination-weddings">Destination Weddings</a></li>
+            <li><a href="/excursions">Excursions</a></li>
+            <li>
+                <% if (isAuthenticated) { %>
+                    <a href="/travel-inquiry-form">Travel Inquiry Form</a>
+                <% } else { %>
+                    <a href="/travelinquiryformnoaccess">Travel Inquiry Form</a>
+                <% } %>
+            </li>
+            <li>
+                <% if (isAuthenticated) { %>
+                    <a href="/contact">Contact Us</a>
+                <% } else { %>
+                    <a href="/contactnoaccess">Contact Us</a>
+                <% } %>
+            </li>
+        </ul>
+    </div>
+
+    <div class="toggle_icon" title="Menu Bar">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        document.querySelector(".toggle_icon").addEventListener("click", function() {
+    document.querySelector(".side_menu").classList.toggle("active");
+});
+
+    </script>
+
+    <div class="container">
+        <h1 style="font-family: 'Mylestock Free', sans-serif !important; font-size: 70px; font-weight: 300; text-align: center; margin-bottom: 20px; color: #333333; letter-spacing: 1.5px;">
+            Terms of Service
+        </h1>
+        
+       
+        
+        <p style="font-size: 1.1rem; line-height: 1.8; color: #333333; margin-bottom: 15px; text-align: justify;">
+            <strong style="font-family: 'Gold Lines Serif Trial';">ACCEPTANCE OF TERMS</strong><br>
+        </p>
+        <p style="line-height: 1.8; color: #333333;font-family: 'Klein Trial'; margin-bottom: 15px; text-align: justify;">
+            By accessing this site, you agree to the following terms...
+            <div style="line-height: 1.8; color: #333333; margin-bottom: 15px; text-align: justify; border: 2px solid #37d7e5; padding: 15px; border-radius: 10px; background: linear-gradient(to right, #f9f9f9, #e6f7ff); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); font-family: 'Grandiflora One';">
+                <p>
+    
+                Your access to and use of this website on which this document is found (the “Website”) and all Services (as defined in Section 2), is subject exclusively to these Terms of Service. The terms “you”, “your” and similar pronouns refer to the person using or accessing the Website or the Services. The terms “we”, “our” and similar pronouns refer to the independently contracted person or entity referered to in the header of this site (the “Company”). This is a legally binding agreement between you and Company; please read it carefully. Unless explicitly stated otherwise, any features or services available at any time on the Website or the Services are subject to these Terms of Service. Accessing the Website or the Services in any manner, even by automated means, constitutes your use of said Website or the Services, respectively, and your agreement to be bound by these Terms of Service. If you do not accept these Terms of Service you must immediately stop using the Website or the Services. You may not use the Website or the Services for any purpose that is unlawful or prohibited by these Terms of Service. You further expressly agree and acknowledge all of the following provisions:
+                We reserve the right to update or amend (collectively, “change”) these Terms of Service at any time and will revise the effective date when we do so. It is your responsibility to check the Terms of Service regularly for any changes and to take note of the posted effective date of the Terms of Service. Your continued use of the Website or the Services, as the case may be, after the posted effective dates constitutes your agreement to be bound by these Terms of Service as modified, provided however, that such modifications shall not apply to any disputes arising prior to the effective date of the changes. Accordingly, you hereby agree that your continued use of the Website constitutes your waiver to contest the enforceability of any such changes (whether for lack of notice or otherwise). Please do not use the Website if you disagree with the provisions of this paragraph 1.3. Otherwise, your continued use is to be deemed conclusive acceptance thereof.
+                <p>THE SERVICES</p>
+                
+                <p>The “Services” consist of the Website and any functions provided by, through, or in conjunction with the Website, including but not limited to travel searches, travel booking, email, telephone messages, and text messages. These Terms of Service do not apply to your travel, only to your use of the Services to make a travel booking.
+                Each component of your travel (including but not limited to cruises, hotels, flights, excursions, tours, all-inclusives, travel insurance, and all other travel related services) may include its own Terms of Service of service or a contract of carriage (the “Partner Terms”). If Partner Terms apply, you will be shown a link to the Partner Terms prior to completing your booking. We make no representations or warranties as to the Partner Terms. You acknowledge and agree that you will review and agree to the Partner Terms prior to booking your travel through the Services.
+                The Services are not for use by users under the age of 18. By registering for the Services, you represent to us that you are over the age of 18, and warrant that you shall not allow persons under the age of 18 to use or access the Services.</p>
+                <p>PLEASE READ THE FOLLOWING PARAGRAPH CAREFULLY. DO NOT USE THE SERVICES IF YOU DO NOT WISH TO COMPLY:</p>
+                
+                <p>By either filling out our contact form or providing contact information as part of a travel related prospective or final booking or reservation, you give us express written consent to contact you by phone, or e-mail, or text messages to (i) provide notices regarding your bookings and travel itineraries, (ii) investigate or prevent fraud, or (iii) collect a debt owed to us. You agree that we may contact you using autodialed or prerecorded message calls, emails, social media, and text messages to carry out the purposes we have identified above. We will not share your phone number(s) with third parties for their own purposes without your consent. Standard telephone minute and text charges may apply. We will not use autodialed or prerecorded message calls or texts to contact you for marketing purposes at the telephone number(s) you designate unless we receive your prior express written consent. You do not have to consent to receive autodialed or prerecorded message calls or texts in order to use the Services. <p>YOU EXPRESSLY AGREE THAT WE MAY CONTACT YOU EVEN IF YOU HAVE PREVIOUSLY REGISTERED YOUR PHONE WITH A FEDERAL OR STATE “DO NOT CALL” REGISTRY.</p> You have the right to withdraw your consent and may opt-out of receiving phone calls by contacting us in any of the methods listed in the “Contact” section of the Website. In addition, you may opt-out of e-mails by clicking the “unsubscribe” link in any e-mail we send to you, and may opt-out of text messages by replying “STOP” to text messages you receive from us. If you opt-out and then re-enable any of these services, you will be deemed to have again given us your express written consent to contact you via any services you re-enable.</p>
+                <p>PRIVACY POLICY.</p> 
+                Our privacy policy is located at in the footer of the Website, and is incorporated herein by reference.
+                <p></p>
+                <p>ACCEPTABLE USE</p>
+                
+                <p>For purposes of these Terms of Use, “Content” means information, text, graphics, logos, photographs, images, moving images, sound, illustrations and other materials made available, displayed or transmitted over, by, or in connection with the Services (including information made available by means of an Internet “hyperlink”, a third party Web posting, e-mail, or similar means), including all trademarks, trade names service marks and domain names contained therein, as well as the contents of any mobile applications, websites, social media, bulletin boards, chat forums, and all updates, upgrades, modifications, and other version of any of the foregoing.
+                With regard to the use of the Services, including any and all Content that you upload, send, post, e-mail, or otherwise transmit while using the Services, you represent and warrant that (i) you are the true owner of or have and will have at all times sufficient rights, without limitation, to upload the Content; (ii) the Content does not and will not violate: (a) the copyrights, patents, trade secrets, trademarks, service marks or other intellectual property rights; (b) any other property rights; (c) privacy rights; or (d) any other proprietary rights of any other person, business, or entity; and (iii) the transmission of the Content does not and will not violate any laws or breach any licenses or other agreements to which you are a party. Except as specifically permitted by law, you may not post, modify, distribute, or reproduce in any way copyrighted or other proprietary materials without obtaining the prior written consent of the copyright owner of such materials.
+                You acknowledge that all Content, whether posted publicly or transmitted privately over, by, or in connection with the Services is the sole responsibility of the person from whom such Content originated. You agree and acknowledge that (i) we do not control or endorse the Content and (ii) that we cannot guarantee the accuracy, integrity or quality of such Content. You further agree and acknowledge that by using the Services you may be exposed to Content that is inaccurate, offensive or indecent. You agree that the Company will not be liable whatsoever for any Content or for any loss or damage of any kind resulting, directly or indirectly, from the use of or reliance on any Content transmitted via the Services and you hereby assume and agree to bear all risks associated with the use of any Content, including any reliance on the accuracy or completeness of such Content.
+                In using the Services, you agree not to upload, send, post, e-mail, or otherwise transmit via the Services any Content that (i) contains viruses other code or software that damages, destroys or interferes with (or is intended to damage, destroy, or interfere with) the communications networks or computer systems of Company, or our employees, contractors, affiliates, or customers, (ii) contains unlawful, tortious, libelous, defamatory, abusive, racist, harassing, or threatening material, or is invasive of another’s privacy, another’s right of publicity, is pornographic (including but not limited to child pornography), or otherwise objectionable as determined by us in our sole discretion, or (iii) constitutes unsolicited commercial bulk email (spam), or is prohibited by the CAN-SPAM Act of 2003, or any other applicable law regulating e-mail services.
+                We have the right, at our sole discretion, to remove any material that breaches these Terms of Service or is (in our sole reasonable opinion) otherwise objectionable.
+                You may not use the Services, either manually or by means of an automated tool, to collect the contact information or personally identifiable information of other users of the Services for any purpose (other than using the Services) including, but not limited to, collection of such information for advertising or direct marketing to users of the Services outside of the Services.
+                You may not use the Services to interfere with, gain unauthorized access to, or otherwise violate the security of our (or another party’s) network, servers, computers, other control devices, software, or data, or to attempt to do any of the foregoing. Examples of system or network security violations include but are not limited to:
+                Unauthorized monitoring, scanning or probing of networks or systems or any other action aimed at the unauthorized interception of data or the harvesting of e-mail addresses;
+                Use any forged, false or misleading number identity, email header, invalid or non-existent domain names in email or postings nor employ techniques to hide, obscure or counterfeit the source of e-mail or other posting;
+                Hacking, attacking, gaining access to, breaching, circumventing or testing the vulnerability of the user authentication or security of any host, network, server, personal computer, network access and control devices, software or data without express authorization of the owner of the system or network;
+                Impersonating others, phishing, or secretly or deceptively obtaining personal information of third parties; or
+                Using any program, file, script, command or transmission of any message or content of any kind, designed to interfere with a terminal session, the access to or use of the Internet or any other means of communication; except in the case of authorized legitimate network security operations, distributing or using tools designed to compromise security (including but not limited to SNMP tools), including cracking tools, password guessing programs, packet sniffers or network probing tools; or programs that may damage the operation of another’s network, system, computer or other property.</p>        
+                
+                <p>TERMINATION</p>
+                
+                <p>We reserve the right to immediately and without notice suspend or terminate your use of the Services if we reasonably believe that you have violated these Terms of Service. We have no obligation to provide you with notice of an alleged violation. We may at any time, at our sole discretion, discontinue the Services or any part thereof without prior notice and you agree that we shall not be liable to you or any third party for any termination of your access to the Services.</p>
+                <p>THIRD PARTY SERVICES</p>
+                
+                <p>The Services may include services provided to Company by third party providers (a “Third Party Component”), including but not limited to ASAP Cruises Inc. dba OutsideAgents.com. Prior to using any Third Party Component, you may be required to agree to additional Terms of Service provided by such third-party vendor. You acknowledge and agree that you will comply with such additional Terms of Service.</p>
+                <p>The Services may also include links to third party websites that are controlled and maintained by others. You acknowledge and agree that any link to other websites is not an endorsement of such websites and that Company is not responsible for the content or availability of any such sites. Neither these Terms of Service nor our Privacy Policy governs the use of your information by third party websites.</p>
+                <p>COMPLIANCE WITH LAWS</p>
+                
+                In connection with your use of the Website or the Services, you agree to comply with all applicable laws regarding the transmission of technical data exported from the United States of America or the country in which you reside (if different) and with all local laws and rules regarding acceptable use of and conduct on the Internet.
+                You agree and acknowledge that (i) the export, import, and use of certain software, and technical data that may be provided as part of the Services are subject to domestic and foreign U.S. laws (including the U.S. Export Administration Act and the regulations implemented thereunder by the U.S. Department of Commerce, the U.S. Foreign Corrupt Practices Act (“FCPA”), and all foreign laws similar to the FCPA) (all such laws and regulations collectively referred to herein as “Export Laws”), as the same may be amended from time to time, (ii) the transmission of Content via the Services may be subject to all domestic and foreign privacy laws applicable to the provision of Services (including the Electronic Communications Privacy Act (together with the Stored Communications Act),the Federal Trade Commission Act, the U.S. Patriot Act, the Children’s Online Protection Act, state privacy laws (including the California Online Privacy Protection Act (“CalOPPA”)), state wiretap laws, and, together with all respective federal and state regulations implementing those laws, as the same may be amended from time to time (all such laws and regulations collectively referred to herein as “Privacy Laws”), and (iii) you shall strictly comply with all Privacy Laws and Export Laws applicable, directly or indirectly, to your operation or use of the Services or your transmission of Content thereby.
+                INTELLECTUAL PROPERTY RIGHTS
+                
+                You acknowledge and agree that the Services, the Website and Content contained therein (including without limitation the Website design, text, graphics and all software and source codes connected with the Website and the Services) are protected by copyright, trademarks, patents and other intellectual property rights and laws that are owned by Company or other third parties from whom Company has the right to display such intellectual property. None of the content may be downloaded, copied, reproduced, transmitted, stored, sold or distributed without the prior written consent of the copyright holder.
+                The Company does not claim ownership of any materials you post, upload or submit to any publicly accessible area of the Services. You hereby grant to Company (and its Affiliates) a royalty-free, perpetual, irrevocable, worldwide, non-exclusive right and license to use, reproduce, modify, adapt, publish, translate, create derivative works of, distribute, perform, and display all Content that you upload to the Services, and to incorporate any such Content in other works in any form, media, or technology now known or later developed. You agree that Company will not treat any Content that you upload to the Services as confidential and may use any such Content in the operation of its business (including without limitation, for products, services, marketing, or advertising) without incurring any liability for royalties or any other consideration of any kind.
+                Notice and Procedure for a Claim of Copyright or Intellectual Infringement
+                
+                <p>A.S.A.P. Cruises Inc. hosts websites for travel agents and agencies with content produced and provided by independent contractors and certain 3rd party producers, including Travel Research Online, LLC. If you believe work in which you hold an intellectual property right is infringed upon by Travel Research Online, LLC or its partners, please provide Travel Research Online, LLC.’s agent for copyright with the following:</p>
+                <p>A description of the copyrighted work on which you claim infringement;</p>
+                <p>A signature of a person authorized to act on your behalf;</p>
+                <p>A description and location of the material on which you claim infringement;</p>
+                <p>Your physical address, email address, and telephone number;</p>
+                <p>A statement by you of a good faith belief the material on which you claim infringement is being used without your authorization and in violation of copyright law;</p>
+                <p>A statement by you or your agent made under penalty of perjury that the information in your notice is accurate and you are the copyright owner.</p>
+                <p>Agent for Notice of claims of copyright infringement: Laurence Gore Laurence D. Gore & Associates PA 101 NE 3rd Avenue Unit 1500 Ft. Lauderdale, FL 33301. Phone: 19545517187 Email:<a href="mailto:goreinternationallaw@gmail.com" style="color: #000000; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';" onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';"> goreinternationallaw@gmail.com</a></p>
+                <p>INDEMNITY</p>
+                <p>You agree to indemnify, defend and hold Company and its shareholders, members, board of directors, board of managers, officers, managers, employees, agents, independent contractors, attorneys, suppliers, vendors or representatives (collectively with Company, the “Company Affiliates”) harmless from and against any and all Claims and Damages arising directly or indirectly (i) from any breach by you of these Terms of Service, and (ii) any Claim brought or threatened against Company by any third party arising (a) out of your use of the Services or (b) by reason of or in connection with any Content submitted, posted or transmitted through the Services, howsoever such Claims or Damages are suffered or incurred by Company as a result of (a) or (b).</p>
+                <p>For purposes of these Terms of Service:</p>
+                <p>“Claim” shall mean any suit, claim, demand, cause of action, administrative, regulatory or judicial action, proceeding (including condemnation or appropriation proceedings), hearing, written notice, arbitration, investigation, request for information, litigation, charge or complaint.</p>
+                <p>“Damages” shall mean any and all injury, damage, liability, judgment, loss, penalty, interest, cost and expense, including reasonable attorneys’ fees and court costs incurred due to, as part of, or resulting from an asserted or threatened Claim.</p>
+                
+                <p>DISCLAIMERS AND LIMITATION OF LIABILITY</p>
+                <p>USE OF THE SERVICES IS AT YOUR OWN RISK. EXCEPT AS EXPRESSLY PROVIDED IN THESE TERMS OF SERVICE, THE SERVICES ARE PROVIDED “AS IS” AND WE MAKE NO WARRANTY, EXPRESS OR LIMITED, WITH RESPECT TO THE SERVICES, INCLUDING ANY AND ALL WARRANTIES OF TITLE, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE OR USE, AND ALL SUCH WARRANTIES ARE HEREBY EXPRESSLY DISCLAIMED.
+                WE ARE NOT LIABLE FOR ANY DAMAGES WHATSOEVER TO THE EXTENT ARISING DIRECTLY OR INDIRECTLY FROM OR IN CONNECTION WITH LOST OR ALTERED MESSAGES OR TRANSMISSIONS OR UNAUTHORIZED ACCESS TO OR THEFT, ALTERATION, LOSS, DAMAGE OR DESTRUCTION OF YOUR CONTENT, DATA, PROGRAMS, INFORMATION, NETWORK OR SYSTEMS, EXCEPT TO THE EXTENT THAT ANY OF THE FOREGOING IS CAUSED BY OUR GROSS NEGLIGENCE OR INTENTIONAL MISCONDUCT.
+                NOTWITHSTANDING ANY PROVISION OF THSE TERMS OF SERVICE TO THE CONTRARY, NONE OF THE COMPANY AFFILIATES SHALL BE LIABLE TO YOU FOR ANY LOST PROFITS, SPECIAL, INCIDENTAL, INDIRECT, PUNITIVE, OR CONSEQUENTIAL COSTS, LIABILITIES OR DAMAGES, WHETHER IN BREACH OF CONTRACT, NEGLIGENCE, STRICT LIABILITY, MISREPRESENTATIONS, OR UNDER ANY OTHER LEGAL THEORY, EVEN IF FORESEEABLE, ARISING FROM THE USE OR PERFORMANCE OF THE SERVICES, ANY INTERRUPTION OF SERVICES, OR ANY DELAY, ERROR OR LOSS OF DATA OR INFORMATION ARISING IN ANY MANNER OUT OF, OR IN CONNECTION WITH, THESE TERMS OF SERVICE, WHETHER OR NOT COMPANY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, ALL CLAIMS FOR WHICH ARE HEREBY SPECIFICALLY WAIVED. TO THE EXTENT SUCH DISCLAIMER IS PERMITTED BY LAW, WE HEREBY DISCLAIM LIABILITY FOR ANY OF THE FOREGOING COSTS, LIABILITIES OR DAMAGES CAUSED BY OUR GROSS NEGLIGENCE OR INTENTIONAL MISCONDUCT. THE FOREGOING LIMITATIONS OF LIABILITY WILL APPLY TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE LAW.
+                YOU ACKNOWLEDGE THAT THE SERVICES ARE NOT GUARANTEED TO BE SECURE OR FREE FROM TAMPERING, VIRUSES, OR OTHER SECURITY VIOLATIONS. ACCORDINGLY, WE HEREBY DISCLAIM ANY AND ALL LIABILITY OR RESPONSIBILITY WHATSOEVER FOR THE SECURITY OF THE SERVICES, WHETHER OR NOT YOU HAVE IMPLEMENTED ENCRYPTION, FIREWALL PROTECTION OR ANY OTHER INTERNET SECURITY SERVICE OR DEVICE. YOU AGREE THAT THE TRANSMISSION OR USE OF CONTENT VIA THE SERVICES IS AT YOUR OWN RISK.</p>
+                 
+                
+                <p>GOVERNING LAW AND USE OF TERMS</p>
+                <p>Captions and paragraph headings used in these Terms of Service are for convenience only, are not substantive provisions and are not be used to interpret any provision hereof. Pronouns used herein are to be construed as masculine, feminine, or neuter, and both singular and plural, as the context may require and the term “person” includes an individual, corporation, limited liability company, association, partnership, limited partnership, limited liability partnership, trust, and other organization, as the case may be. The word “include”, “exclude” and derivations thereof are not be construed as terms of limitation. The words “day,” “month,” and “year” mean, respectively, business day, calendar month and calendar year. Section references refer to sections of these Terms of Service.
+                In the event of any conflict between these Terms of Service and any contract between you and the Company, the latter shall control.
+                Should any part or provision of this Agreement, for any reason, be declared invalid or illegal, such invalidity or illegality shall not affect the validity of any remaining portion, which remaining portion shall remain in force and effect as if this Agreement had been executed with the invalid or illegal portions thereof eliminated.
+                All the provisions herein contained shall be binding upon and inure to the benefit of the respective heirs, personal representatives, successors and assigns of the parties hereto. Outside Agents may assign all of its rights hereunder at any time without notice or consent.
+                This Agreement shall be construed and enforced in accordance with the laws of the State of Florida. In the event of any legal action or proceeding arising from this Agreement, the parties agree that the state court forum for said litigation shall be in Duval County, Florida, in the court of appropriate jurisdiction, and that the federal court jurisdiction shall be in the Middle District of Florida in Duval County, Florida. The parties hereto submit to the exclusive jurisdiction of such courts and hereby waive any objection or defense to such jurisdiction or venue, including any defense based upon inconvenient forum.</p>
+                <p>Effective Date: April 8, 2019</p>
+                </p>
+        </div>
+    </div>
+             
+            
+        </div>
+    </div>
+    <head>
+        <script src="https://kit.fontawesome.com/83152295c7.js" crossorigin="anonymous"></script>
+    </head>
+
+    <footer class="footer-area" style="background: linear-gradient(to right, #37d7e5, #00b8b8); color: #000000; font-family: 'Mylestock-Free';">
+        <div class="container">
+            <div class="footer-bottom" style="font-family: 'Mylestock-Free';text-align: center; padding: 10px 0; font-size: 12px; border-top: 1px solid rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 16px; font-family: 'Mylestock-Free';font-weight: 500; margin-bottom: 4px;">
+                    Sayles Away Travel
+                </h3>
+                <p style="margin: 2px 0;">
+                    832.377.5221 • <a href="mailto:saylesawaytravel@gmail.com" style="color: #000000; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';" onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">saylesawaytravel@gmail.com</a>
+                </p>
+                <p style="margin: 2px 0; line-height: 1.4;">
+                    An Independent Affiliate of Outside Agents, Florida Seller of Travel Ref. No. ST15578 – Washington UBID No. 603189022
+                </p>
+                <p style="margin-top: 5px;">
+                    <a href="/terms-of-service" 
+                       style="color: #000000; text-decoration: none; transition: all 0.3s ease;" 
+                       onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';"
+                       onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">
+                       Terms Of Service
+                    </a> • 
+                    <a href="/privacy-policy" 
+                       style="color: #000000; text-decoration: none; transition: all 0.3s ease;" 
+                       onmouseover="this.style.textDecoration='underline'; this.style.backgroundColor='#D1E7EC';"
+                       onmouseout="this.style.textDecoration='none'; this.style.backgroundColor='transparent';">
+                       Privacy Policy
+                    </a>
+                </p>
+                <div style="margin-top: 10px;">
+                    <a href="https://www.facebook.com/saylesawaytravel/" target="_blank" style="margin: 0 8px;">
+                        <i class="fab fa-facebook-f" style="font-size: 18px; color: #000000;"></i>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/saylesawaytravel/" target="_blank" style="margin: 0 8px;">
+                        <i class="fab fa-instagram" style="font-size: 18px; color: #000000;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+        
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleIcons = document.querySelectorAll(".toggle_icon");
+            const sideMenu = document.querySelector(".side_menu");
+            const closeMenuIcon = document.querySelector(".menu-close .toggle_icon");
+    
+         
+            toggleIcons.forEach(icon => {
+                icon.addEventListener("click", function () {
+                    sideMenu.classList.toggle("active");
+                });
+            });
+    
+            closeMenuIcon.addEventListener("click", function () {
+                sideMenu.classList.remove("active");
+            });
+    
+           
+            document.addEventListener("click", function (event) {
+                if (!sideMenu.contains(event.target) && !event.target.closest('.toggle_icon')) {
+                    sideMenu.classList.remove("active");
+                }
+            });
+        });
+    </script>
+    
+    </body>
+    
+        
+        <!--================ End footer Area  =================-->
+    
+    
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/stellar.js"></script>
+        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+        <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+        <script src="vendors/isotope/isotope-min.js"></script>
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="vendors/jquery-ui/jquery-ui.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/mail-script.js"></script>
+        <script src="vendors/popup/jquery.magnific-popup.min.js"></script>
+        <script src="vendors/swiper/js/swiper.min.js"></script>
+        <script src="vendors/scroll/jquery.mCustomScrollbar.js"></script>
+        <script src="js/theme.js"></script>
+</body>
+</html>
